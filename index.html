@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تقييم الجمال 💖🌸</title>
+    <style>
+        body {
+            background-color: #f8e6f5;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #ff66b2;
+            font-size: 36px;
+            margin-top: 50px;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-size: 18px;
+            margin: 10px 0;
+            display: block;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 10px;
+            width: 100%;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .button {
+            background-color: #ff66b2;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff3385;
+        }
+
+        .response-message {
+            background-color: #ff66b2;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+            display: none;
+        }
+
+        .flower-animation {
+            animation: flower 2s infinite;
+        }
+
+        @keyframes flower {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .button.active {
+            background-color: #99ccff;
+        }
+
+        #replyButton {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>تقييم الجمال 💖🌸</h1>
+
+    <div class="form-container">
+        <form id="beautyForm">
+            <label for="name">الاسم 🌷:</label>
+            <input type="text" id="name" required>
+
+            <label for="nickname">اسم الدلع 🥰:</label>
+            <input type="text" id="nickname" required>
+
+            <label for="age">العمر 🕒:</label>
+            <input type="number" id="age" required>
+
+            <label for="hairType">نوع الشعر 💇‍♀️:</label>
+            <select id="hairType" required>
+                <option value="كيرلي">كيرلي 🌟</option>
+                <option value="ستريت">ستريت 💁‍♀️</option>
+                <option value="ويفي">ويفي 🌊</option>
+            </select>
+
+            <label for="color">اللون المفضل 🎨:</label>
+            <select id="color" required>
+                <option value="اصفر">اصفر 💛</option>
+                <option value="وردي">وردي 💖</option>
+                <option value="ازرق">ازرق 💙</option>
+                <option value="احمر">احمر ❤️</option>
+            </select>
+
+            <label for="talent">هل لديك موهبة الغناء 🎤؟</label>
+            <select id="talent">
+                <option value="لا">لا 🙅‍♀️</option>
+                <option value="نعم">نعم 🎶</option>
+            </select>
+
+            <button type="submit" class="button">تأكيد ✅</button>
+        </form>
+
+        <div class="response-message" id="responseMessage">
+            <p>أنتِ أجمل بنت أتت للموقع، لدرجة أن وجهكِ يشبه القمر 🌙 وصوتكِ جميل ورقيق وعذب 💖🎶!</p>
+        </div>
+
+        <div class="flower-animation">
+            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-flower-flaticons-lineal-color-flat-icons-2.png" alt="flower" />
+        </div>
+
+        <button class="button" id="replyButton" onclick="sendReply()">الرد على الرسالة 📨</button>
+    </div>
+
+    <script>
+        const form = document.getElementById('beautyForm');
+        const responseMessage = document.getElementById('responseMessage');
+        const submitButton = form.querySelector('.button');
+        const nameInput = document.getElementById('name');
+        const nicknameInput = document.getElementById('nickname');
+        const ageInput = document.getElementById('age');
+        const hairTypeInput = document.getElementById('hairType');
+        const colorInput = document.getElementById('color');
+        const talentInput = document.getElementById('talent');
+        const replyButton = document.getElementById('replyButton');
+
+        form.addEventListener('input', () => {
+            if (nameInput.value && nicknameInput.value && ageInput.value && hairTypeInput.value && colorInput.value) {
+                submitButton.classList.add('active');
+            } else {
+                submitButton.classList.remove('active');
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            responseMessage.style.display = 'block';
+            replyButton.style.display = 'inline-block'; // يظهر الزر بعد التأكيد
+        });
+
+        function sendReply() {
+            const email = "hamzamagdy1977@gmail.com";
+            const replyMessage = `أريد الرد على الرسالة: 
+                                 أنتِ أجمل بنت أتت للموقع، لدرجة أن وجهكِ يشبه القمر 🌙 وصوتكِ جميل ورقيق وعذب 💖🎶.`;
+            window.location.href = `mailto:${email}?subject=رد على تقييم الجمال&body=${encodeURIComponent(replyMessage)}`;
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elqodwa Uncle Sasky</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            direction: rtl;
+        }
+        h1 {
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .question {
+            background-color: #333;
+            padding: 20px;
+            margin: 20px 10%;
+            border-radius: 10px;
+            border: 1px solid #444;
+            box-shadow: 0px 0px 10px #000;
+        }
+        .question p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+        .btn:hover {
+            background-color: #666;
+        }
+        #result img {
+            max-width: 150px;
+        }
+        .emoji {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Elqodwa Uncle Sasky 🎩🖤</h1>
+    <img src="https://static.wikia.nocookie.net/naruto/images/d/d8/Sasuke_Part_2.png" alt="Sasuke">
+    <p>املأ البيانات الشخصية وأجب عن الأسئلة الممتعة! 😎🔥</p>
+    
+    <form id="quizForm">
+        <!-- البيانات الشخصية -->
+        <div>
+            <label>اسمك: <input type="text" id="name" required></label>
+        </div>
+        <div>
+            <label>العمر: <input type="number" id="age" required></label>
+        </div>
+        
+        <!-- الأسئلة -->
+        <div class="question">
+            <p>1️⃣ انكل ساسكي بيكتب بأي لغة؟ 🖋️</p>
+            <label><input type="radio" name="q1" value="فرانكو"> فرانكو 🇫🇷</label>
+            <label><input type="radio" name="q1" value="عربي"> عربي 🇴🇲</label>
+            <label><input type="radio" name="q1" value="انجليزي"> انجليزي 🇬🇧</label>
+        </div>
+        <div class="question">
+            <p>2️⃣ مين أفشخ واحد في سيرفر تايتن؟ 🤔🔥</p>
+            <label><input type="radio" name="q2" value="يوسف"> يوسف 💪</label>
+            <label><input type="radio" name="q2" value="كتناكي"> كتناكي 🐔</label>
+            <label><input type="radio" name="q2" value="عبدالله"> عبدالله 🦁</label>
+            <label><input type="radio" name="q2" value="مستر ساسكي"> مستر ساسكي 💥</label>
+        </div>
+        <div class="question">
+            <p>3️⃣ ما هي الأكلة المفضلة للقدوة؟ 🍽️</p>
+            <label><input type="radio" name="q3" value="بيتزا"> بيتزا 🍕</label>
+            <label><input type="radio" name="q3" value="مكرونة بشاميل"> مكرونة بشاميل 🥘</label>
+            <label><input type="radio" name="q3" value="شاورما"> شاورما 🌯</label>
+            <label><input type="radio" name="q3" value="برجر"> برجر 🍔</label>
+        </div>
+        
+        <button type="button" class="btn" onclick="calculateScore()">تأكيد ✅</button>
+    </form>
+    
+    <div id="result" style="display: none;">
+        <h2>النتيجة 🎉</h2>
+        <p id="score"></p>
+        <img src="https://static.wikia.nocookie.net/naruto/images/d/d8/Sasuke_Part_2.png" alt="Sasuke">
+        <p>🖤🤍</p>
+    </div>
+
+    <script>
+        function calculateScore() {
+            let score = 0;
+            const answers = {
+                q1: "فرانكو",
+                q2: "مستر ساسكي",
+                q3: "مكرونة بشاميل"
+            };
+            
+            for (let question in answers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score += 1;
+                }
+            }
+            
+            document.getElementById("quizForm").style.display = "none";
+            document.getElementById("result").style.display = "block";
+            document.getElementById("score").textContent = `لقد حصلت على ${score} من 3!`;
+        }
+    </script>
+</body>
+</html>
+<img src="sasuke.jpg" alt="Sasuke" style="width: 100%; height: auto;">
